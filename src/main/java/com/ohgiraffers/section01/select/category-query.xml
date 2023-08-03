@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <entry key="selectCategoryCode">
+        SELECT
+               S.*
+          FROM TBL_CATEGORY S
+         WHERE S.CATEGORY_CODE LIKE ?
+    </entry>
+    
+    <entry key="insertCategory">
+        INSERT
+          INTO TBL_CATEGORY
+        (
+          CATEGORY_CODE
+        , CATEGORY_NAME
+        , REF_CATEGORY_CODE
+        )
+        VALUES
+        (
+          SEQ_CATEGORY_CODE.NEXTVAL
+        , ?
+        , ?
+        )
+    </entry>
+
+    <entry key="updateCategory">
+        UPDATE
+               TBL_CATEGORY
+           SET CATEGORY_NAME = ?
+             , REF_CATEGORY_CODE = ?
+        WHERE CATEGORY_CODE = ?
+    </entry>
+
+    <entry key="deleteCategory">
+        DELETE
+          FROM TBL_CATEGORY
+         WHERE CATEGORY_CODE = ?
+    </entry>
+</properties>
